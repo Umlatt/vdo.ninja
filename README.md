@@ -3,8 +3,14 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/umlatt/vdo.ninja.svg)](https://hub.docker.com/r/umlatt/vdo.ninja)
 [![Docker Stars](https://img.shields.io/docker/stars/umlatt/vdo.ninja.svg)](https://hub.docker.com/r/umlatt/vdo.ninja)
 
-## Project repository
-[Link to Github project](https://github.com/Umlatt/vdo.ninja)
+VDO.Ninja is a project built by `steveseguin` for awesome streaming magic. This is just a project to build it into a self service docker container.
+## Project links
+
+### Original Project
+Github Project: [steveseguin/vdo.ninja](https://github.com/steveseguin/vdo.ninja)
+
+### Docker Project 
+Github Project: [github:umlatt/vdo.ninja](https://github.com/Umlatt/vdo.ninja)
 
 ## State
 
