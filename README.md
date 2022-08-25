@@ -10,7 +10,7 @@ VDO.Ninja is a project built by `steveseguin` for awesome streaming magic. This 
 Github Project: [steveseguin/vdo.ninja](https://github.com/steveseguin/vdo.ninja)
 
 ### Docker Project 
-Github Project: [github:umlatt/vdo.ninja](https://github.com/Umlatt/vdo.ninja)
+Github Project: [umlatt/vdo.ninja](https://github.com/Umlatt/vdo.ninja)
 
 ## State
 
