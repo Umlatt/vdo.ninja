@@ -8,6 +8,6 @@ RUN apt update && apt upgrade -y
 # Get vdo.ninja files
 COPY ./vdo.ninja /var/www/html/.
 # Get new NGINX conf
-COPY default.conf etc/nginx/conf.d/.
+COPY default.conf /etc/nginx/conf.d/.
 # Set working dir
 WORKDIR /var/www/html
