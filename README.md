@@ -4,7 +4,7 @@
 [![Docker Stars](https://img.shields.io/docker/stars/umlatt/vdo.ninja.svg)](https://hub.docker.com/r/umlatt/vdo.ninja)
 
 ## Project repository
-[github project](https://github.com/Umlatt/vdo.ninja)
+[Link to Github project](https://github.com/Umlatt/vdo.ninja)
 
 ## State
 
