@@ -14,14 +14,25 @@ Github Project: [umlatt/vdo.ninja](https://github.com/Umlatt/vdo.ninja)
 
 ## State
 
-> **EARLY DEVELOPMENT**
+> **BETA**
 
 ## Version Info
 
 Check [changelog](https://github.com/umlatt/vdo.ninja/blob/master/changelog.md) for more information
 
 ## Installation
+### Requirements
+
+1. A server with docker (or some equivalent container service)
+
+### Deploy
 
 ```bash
-docker run -dit --name vdo.ninja -p 80:80 umlatt/vdo.ninja
+docker run -dit -p 80:80 -p 443:443 -e SERVER_URL=$HOSTNAME -e EMAIL_ADDRESS=emailforcert@domain.com umlatt/vdo.ninja
 ```
+- Provide the DNS name of your server in `SERVER_URL=`*
+- Provide a valid email address against which your certificate will be registered in `EMAIL_ADDRESS=`
+
+### Notes
+
+- **Certificates**: Certificates are collected using `certbot`/letsencrypt. Please **NOTE** that autorenewal of certs is not yet configured, however, rebooting the container will trigger a cert renewal.
