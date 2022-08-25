@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "Init SSL..."
+cd /root/
 if [ -f "ssl_create.sh" ]
 then
     echo "No cert currently exists, generaing SSL. Please wait..."
@@ -8,10 +9,10 @@ then
         echo "SSL cert created successfully."
         mv ssl_create.sh ssl_create.sh.done
     else
-        echo "SSL cert failed to create. Please resolve error in log and then restart container."
+        echo "ERROR: SSL cert failed to create. Please resolve error in log and then restart container."
     fi
 else
-    certbot -q renew --nginx
+    ./ssl_renew.sh
     if [ $? -eq 0 ]; then
         echo "SSL cert renewed successfully."
     else
