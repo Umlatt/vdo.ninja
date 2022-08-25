@@ -28,7 +28,7 @@ A server with something docker flavoured
 
 ### Deployment
 
-1. Provide the DNS name of your server in `SERVER_URL=`*
+1. Provide the DNS name of your server in `SERVER_URL=`
 2. Provide a valid email address against which your certificate will be registered in `EMAIL_ADDRESS=`
 
 ```bash
