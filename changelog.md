@@ -1,6 +1,9 @@
 # VDO Ninja Docker - Changelog
 
-- [ ] Auto cert renewal [currently certs must be renewed manually with a container reboot] 
+
+## 0.1.0-beta
+
+- [x] Feature: Auto cert renewal [certs can be manually renewed upon reboot of container]
 ## 0.0.5-dev
 
 - Feature: SSL management using `certbot`, with cert renew on reboot
