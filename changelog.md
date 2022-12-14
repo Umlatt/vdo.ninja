@@ -1,5 +1,8 @@
 # VDO Ninja Docker - Changelog
 
+## 21.1 Stable
+
+- [x] Updated to current build provided in master project.
 
 ## 0.1.0-beta
 
