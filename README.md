@@ -15,7 +15,7 @@ Github Project: [umlatt/vdo.ninja](https://github.com/Umlatt/vdo.ninja)
 
 ## State
 
-> **RELEASE CANDIDATE**
+> **STABLE**
 
 ## Version Info
 
