@@ -32,7 +32,7 @@ A server with something docker flavoured
 2. Provide a valid email address against which your certificate will be registered in `EMAIL_ADDRESS=`
 
 ```bash
-docker run -dit -p 80:80 -p 443:443 -e SERVER_URL=$HOSTNAME -e EMAIL_ADDRESS=emailforcert@domain.com umlatt/vdo.ninja
+docker run -dit -p 80:80 -p 443:443 --restart=unless-stopped --name vdo.ninja -e SERVER_URL=$HOSTNAME -e EMAIL_ADDRESS=emailforcert@domain.com umlatt/vdo.ninja
 ```
 ### Notes
 
