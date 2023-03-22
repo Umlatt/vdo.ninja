@@ -1,5 +1,10 @@
 # VDO Ninja Docker - Changelog
 
+## 22.9 Stable
+
+- [x] Updated to current build proivded in master project.
+- [x] BugFix - Fixed issue in nginx init. (moved ssl init into /init folder)
+
 ## 21.1 Stable
 
 - [x] Updated to current build provided in master project.
