@@ -36,6 +36,9 @@ docker run -dit -p 80:80 -p 443:443 --restart=unless-stopped --name vdo.ninja -e
 ```
 ### Notes
 
+**Restart Unless Stopped** 
+- If restart unless-stopped flag is not used, please note that after the certifcate is generated, the container will need to be started again.
+
 **Certificates**: 
 - Certificates are created/renewed using `certbot/letsencrypt`. 
 -  **NOTE**: Autorenewal of certs is not yet configured, however, rebooting the container will trigger a cert renewal.
@@ -43,6 +46,9 @@ docker run -dit -p 80:80 -p 443:443 --restart=unless-stopped --name vdo.ninja -e
 
 **START DELAY**
 - Please note that, depending on your connection to the let's encrypt service, it may take a little time of your DNS to be registered. You can track the progress by following the steps below. This is typically a matter of several seconds (if a valid DNS name is provided)
-1. Get your container name/id: `docker ps`
-2. Using the name of your conatiner that you created (in the output from step 1), you can tail the logs `docker logs --follow <container_name/id>`
-3. You will see the steps of https registration and the output should provide you with the domain name that you configured.
+
+```bash
+docker logs --follow vdo.ninja
+```
+
+You will see the steps of https registration and the output should provide you with the domain name that you configured.
