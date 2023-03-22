@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Init SSL..."
-cd /root/
+cd /init/
 if [ -f "ssl_create.sh" ]
 then
     echo "No cert currently exists, generaing SSL. Please wait..."
