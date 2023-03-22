@@ -39,3 +39,10 @@ docker run -dit -p 80:80 -p 443:443 -e SERVER_URL=$HOSTNAME -e EMAIL_ADDRESS=ema
 **Certificates**: 
 - Certificates are created/renewed using `certbot/letsencrypt`. 
 -  **NOTE**: Autorenewal of certs is not yet configured, however, rebooting the container will trigger a cert renewal.
+-  **NOTE**: **A VALID DNS NAME IS REQUIRED FOR HTTPS**. This is a requirement of HTTPS, not this deployment.
+
+**START DELAY**
+- Please note that, depending on your connection to the let's encrypt service, it may take a little time of your DNS to be registered. You can track the progress by following the steps below. This is typically a matter of several seconds (if a valid DNS name is provided)
+1. Get your container name/id: `docker ps`
+2. Using the name of your conatiner that you created (in the output from step 1), you can tail the logs `docker logs --follow <container_name/id>`
+3. You will see the steps of https registration and the output should provide you with the domain name that you configured.
