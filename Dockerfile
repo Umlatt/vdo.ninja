@@ -16,4 +16,4 @@ COPY ./init/ /init/
 # Configure working directory
 WORKDIR /var/www/html
 # Set run on start commands
-CMD /init/entrypoint.sh
+CMD /init/ssl_init.sh && /usr/sbin/nginx -g "daemon off;"
