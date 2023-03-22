@@ -12,8 +12,8 @@ COPY ./vdo.ninja /var/www/html/vdo.ninja
 # Add copy of default nginx conf file
 COPY default.conf /etc/nginx/conf.d/.
 # Add ssl worker files (for nginx https)
-COPY ssl* /root/
+COPY ./init/* /init/.
 # Configure working directory
 WORKDIR /var/www/html
 # Set run on start commands
-CMD /root/ssl_init.sh && /bin/bash
+CMD /init/entrypoint.sh
