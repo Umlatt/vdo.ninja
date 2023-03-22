@@ -4,6 +4,7 @@
 
 - [x] Updated to current build proivded in master project.
 - [x] BugFix - Fixed issue in nginx init. (moved ssl init into /init folder)
+    - Added check->start nginx if required (on boot)
 
 ## 21.1 Stable
 
