@@ -1,0 +1,54 @@
+name: Docker Workflow
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: '[1] Checkout repository'
+        uses: actions/checkout@v2
+
+      - name: '[2] Get latest release version'
+        id: get_latest_version
+        run: |
+          github_access_key="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"
+          version=$(curl -L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer $github_access_key" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/repos/steveseguin/vdo.ninja/releases | jq -r '.[0].tag_name' | sed 's/v//g')
+          echo "::set-output name=version::$version"
+
+      - name: '[3] Log in to Docker Hub'
+        uses: docker/login-action@v1
+        with:
+          username: 'umlatt'
+          password: 'dckr_pat_8nvJLPRypyDzgaczk5RHDgaHoVs'
+        
+      - name: '[4] Check if image already exists'
+        id: check_image
+        run: |
+          tag="${{ steps.get_latest_version.outputs.version }}-stable"
+          response=$(curl -sSL -o /dev/null -w "%{http_code}" "https://hub.docker.com/v2/repositories/umlatt/vdo.ninja/tags/$tag")
+          echo "::set-output name=response::$response"
+
+      - name: '[5] Build and push Docker image'
+        if: steps.check_image.outputs.response != '201'
+        run: |
+          tag="${{ steps.get_latest_version.outputs.version }}-stable"
+          script_directory=$(dirname "$(readlink -f "$0")")
+          cd /root/vdo.ninja
+          rm -rf vdo.ninja
+          git clone https://github.com/steveseguin/vdo.ninja
+          docker build -t umlatt/vdo.ninja:"$tag" .
+          if [[ $? -eq 0 ]]; then
+            docker tag umlatt/vdo.ninja:"$tag" umlatt/vdo.ninja:latest
+            docker push umlatt/vdo.ninja:"$tag" && docker push umlatt/vdo.ninja:latest
+          else
+            echo "[ERROR] Failed to build the image" > "$script_directory/error.log"
+          fi          
+
+      - name: '[DEV] TEST STEP'
+        run: |
+          ls
