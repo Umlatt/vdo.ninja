@@ -1,5 +1,10 @@
 # VDO Ninja Docker - Changelog
 
+## 24.4 Stable
+
+- [x] nginx base image - changed to `stable` instead of `latest` due to nginx deprecating `latest`
+- [x] Codebase 24.4 stable - used 24.4 release from Steve's project
+
 ## 22.9 Stable
 
 - [x] Updated to current build proivded in master project.
