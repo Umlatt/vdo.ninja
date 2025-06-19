@@ -28,16 +28,13 @@ A server with something docker flavoured
 
 ### Deployment
 
+#### Auto SSL (using lets encrypt)
 1. Provide the DNS name of your server in `SERVER_URL=`
 2. Provide a valid email address against which your certificate will be registered in `EMAIL_ADDRESS=`
 
 ```bash
 docker run -dit -p 80:80 -p 443:443 --restart=unless-stopped --name vdo.ninja -e SERVER_URL=$HOSTNAME -e EMAIL_ADDRESS=emailforcert@domain.com umlatt/vdo.ninja
 ```
-### Notes
-
-**Restart Unless Stopped** 
-- If restart unless-stopped flag is not used, please note that after the certifcate is generated, the container will need to be started again.
 
 **Certificates**: 
 - Certificates are created/renewed using `certbot/letsencrypt`. 
@@ -50,5 +47,12 @@ docker run -dit -p 80:80 -p 443:443 --restart=unless-stopped --name vdo.ninja -e
 ```bash
 docker logs --follow vdo.ninja
 ```
-
 You will see the steps of https registration and the output should provide you with the domain name that you configured.
+
+#### Without auto SSL
+
+You may be using a reverse proxy to handle your SSL termination. In this case you can provide the environment variable `SSL=off`.
+
+```bash
+docker run -dit -p 80:80 --restart=unless-stopped --name vdo.ninja -e SSL=off umlatt/vdo.ninja
+```

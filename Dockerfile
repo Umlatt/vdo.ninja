@@ -16,7 +16,7 @@ RUN mkdir -p /usr/local/lib/certbot-nginx
 RUN pip install --target=/usr/local/lib/certbot-nginx certbot-nginx
 
 # Add PYTHONPATH environment variable to include the target directory
-ENV PYTHONPATH=/usr/local/lib/certbot-nginx:$PYTHONPATH
+ENV PYTHONPATH="/usr/local/lib/certbot-nginx:${PYTHONPATH}"
 
 # Get vdo.ninja webserver files
 COPY ./vdo.ninja /var/www/html/vdo.ninja
@@ -31,4 +31,4 @@ COPY ./init/ /init/
 WORKDIR /var/www/html
 
 # Set run on start commands
-CMD "/init/entrypoint.sh"
+CMD ["/init/entrypoint.sh"]
