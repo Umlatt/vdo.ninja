@@ -1,5 +1,11 @@
 # VDO Ninja Docker - Changelog
 
+## 27.0-1 *stable*
+- [x] Added environment variable `SSL=off` to disable internal SSL services
+
+## 27.0 *stable*
+- [x] Built off of latest v27.0 release of vdo.ninja
+
 ## 24.4 *stable*
 - [x] nginx base image - changed to `stable` instead of `latest` due to nginx deprecating `latest`
 - [x] Codebase 24.4 stable - used 24.4 release from Steve's project
