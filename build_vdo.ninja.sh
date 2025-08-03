@@ -13,8 +13,9 @@ if [[ $version ]]; then
 	tar -xvf vdo.ninja.tar.gz && rm -rf vdo.ninja.tar.gz
 	mv "$(find . -maxdepth 1 -type d -name 'vdo.ninja*' | head -n 1)" vdo.ninja
     fi
-    docker build -t umlatt/vdo.ninja:$version .
-    docker tag umlatt/vdo.ninja:$version umlatt/vdo.ninja:latest
+
+    docker buildx build --platform linux/amd64,linux/arm64  -t umlatt/vdo.ninja:$version --push .
+    docker buildx build --platform linux/amd64,linux/arm64  -t umlatt/vdo.ninja:latest --push .
 else
     printf "Version number required.\ne.g.\t$0 1.0.2\n"
 fi
